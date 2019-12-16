@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>JavaScript | SJ's 개발노트</title><meta name="description" content="JavaScript"><meta name="keywords" content="JavaScript"><meta name="author" content="황상진"><meta name="copyright" content="황상진"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon-96x96.png"><link rel="preconnect" href="//cdn.jsdelivr.net"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="JavaScript"><meta name="twitter:description" content="JavaScript"><meta name="twitter:image" content="http://sangjin5579.github.io/img/js.png"><meta property="og:type" content="article"><meta property="og:title" content="JavaScript"><meta property="og:url" content="http://sangjin5579.github.io/2019/12/15/javascript/"><meta property="og:site_name" content="SJ's 개발노트"><meta property="og:description" content="JavaScript"><meta property="og:image" content="http://sangjin5579.github.io/img/js.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="canonical" href="http://sangjin5579.github.io/2019/12/15/javascript/"><link rel="prev" title="javascript_engine" href="/http:/sangjin5579.github.io/2019/12/16/javascript-engine/"><link rel="next" title="test" href="/http:/sangjin5579.github.io/2019/12/10/test/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight_copy: 'false',
+  highlight_lang: 'true',
+  highlight_shrink: 'false',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  copyright: undefined,
+  copy_copyright_js: false,
+  ClickShowText: undefined,
+  medium_zoom: 'true',
+  Snackbar: undefined
+  
+}</script><meta name="generator" content="Hexo 4.1.0"></head><body><div id="header"> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">SJ's 개발노트</a></span><i class="fa fa-bars fa-fw toggle-menu pull_right close" aria-hidden="true"></i><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 아카이브</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 태그</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 카테고리</span></a></div></div></span><span class="pull_right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lazyload avatar_img" src="/img/favicon-96x96.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">게시글수</div><div class="length_num">5</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">태그</div><div class="length_num">2</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">카테고리</div><div class="length_num">3</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 아카이브</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 태그</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 카테고리</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">Catalog</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#JavaScript-훑어보기"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">[JavaScript] 훑어보기</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#JavaScript-역사"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">JavaScript 역사</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#ECMA-스크립트"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">ECMA 스크립트</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#ECMA-스크립트의-실행은"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">ECMA 스크립트의 실행은?</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#정리"><span class="toc_mobile_items-number">1.4.</span> <span class="toc_mobile_items-text">정리</span></a></li></ol></li></ol></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-훑어보기"><span class="toc-number">1.</span> <span class="toc-text">[JavaScript] 훑어보기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-역사"><span class="toc-number">1.1.</span> <span class="toc-text">JavaScript 역사</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMA-스크립트"><span class="toc-number">1.2.</span> <span class="toc-text">ECMA 스크립트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECMA-스크립트의-실행은"><span class="toc-number">1.3.</span> <span class="toc-text">ECMA 스크립트의 실행은?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#정리"><span class="toc-number">1.4.</span> <span class="toc-text">정리</span></a></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/js.png)"><div id="post-info"><div id="post-title"><div class="posttitle">JavaScript</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-12-15<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-12-16</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Front-End/">Front_End</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Front-End/JavaScript/">JavaScript</a></span><div class="post-meta-wordcount"><i class="fa fa-eye post-meta__icon" aria-hidden="true">       </i><span>Post View: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><!-- 
+title:
+date:
+tags:
+categories:
+keywords:
+description:
+top_img: 해당 포스트 배경이미지
+comments  是否顯示評論（除非設置false,可以不寫）
+cover:  리스트 커버 섬네일
+toc:  是否顯示toc （除非特定文章設置，可以不寫）
+toc_number: 是否顯示toc數字 （除非特定文章設置，可以不寫）
+copyright: 是否顯示版權 （除非特定文章設置，可以不寫） -->
+
+
+<h1 id="JavaScript-훑어보기"><a href="#JavaScript-훑어보기" class="headerlink" title="[JavaScript] 훑어보기"></a>[JavaScript] 훑어보기</h1><p>문득 궁금했었지만 실제로 알고있지 않아도 큰 무리가 없었던 태생.<br>하지만 앞으로 자바스크립트를 의미있게 사용하기 위해, 왜 어떠한 목적으로 javascript가 태어났는지 정도는 알고있어야 개발자의 기본 덕목이지 않을까 생각한다.</p>
+<hr>
+<h2 id="JavaScript-역사"><a href="#JavaScript-역사" class="headerlink" title="JavaScript 역사"></a>JavaScript 역사</h2><p>자바스크립트는 과거 1990년대 넷스케이프 커뮤니케이션즈 코퍼레이션으로부터 탄생했다.</p>
+<p>현재 구글의 크롬 브라우저가 세계 브라우저 시장을 점유하고 있는것 처럼 당시에는 넷스케이프 커뮤니케이션즈의 <code>넷스케이프 네비게이터</code>라는 브라우저가 시장의 약 80%를 지배했다고 한다.</p>
+<p>지금의 구글을 생각해보면.. 그만큼 영향력이 어마무시 했을것 같다.. </p>
+<p>당시 넷스케이프에서는 HTML에 코드를 웹 페이지 마크업으로 직접 작성하면서 웹 디자이너들과 프로그래머들이<br>이미지, 플러그인 등의 요소를 쉽게 조합할 수 있는 동적인 마크업을 위해 글루 언어(glue language)가 필요하다고 판단하여 개발이 시작되었다.</p>
+<p>이 때 스크립트 언어가 자바와 비슷한 문법을 구현하고자 썬 마이크로시스템즈와 협업하여 공식적으로 <code>라이브스크립트(LiveScript)</code>가 탄생했고,</p>
+<p>자바 프로그래밍 언어로부터 파생되었다는 인상을 심어주기 위해서였는지 나중에 자바스크립트라고 공식명칭을 바꾸었다. 이때 명칭때문에 많은 혼란을 야기했다고 한다.</p>
+<p><code>자바와 비슷한 문법</code>을 구현한 것이지 자바 자체를 도입한 것이 아니었기 때문인것 같다.</p>
+<p>정리하면 JavaScript는 HTML 동적 마크업을 위해 개발되었으며 명칭은 단순히 자바와 비슷한 문법을 지원하고 지향하기 때문이었다.</p>
+<p>근래 Node.js와 같은 런타임 환경과 같이 서버 사이드 프로그래밍에도 사용되고 있다. 점점 Java와 닮아가고 있다는 느낌을 받는다. </p>
+<hr>
+<h2 id="ECMA-스크립트"><a href="#ECMA-스크립트" class="headerlink" title="ECMA 스크립트"></a>ECMA 스크립트</h2><p>우리가 잘 알고있는 크로스 브라우징의 눈엣가시 IE브라우저를 개발한 마이크로소프트도 당시 JavaScript의 성공에 자극을 받아 J스크립트를 개발했다.</p>
+<p>J스크립트?? 자바스크립트와 다른 스크립트였던 것인가??? 혼란스럽다.</p>
+<p>우리가 개발한 JavaScript 코드는 크롬, IE, 사파리, 오페라 등등 대부분의 브라우저에서 호환이 되어 무리없이 동작을 한다.</p>
+<p>그렇다면 각 브라우저별로 넷스케이프 네비게이터에 호환하는 JavaScript처럼 각 개발사별로 독립적인 스크립트 언어를 개발해내었다는 의미가 된다.</p>
+<p>어떻게?? JavaScript 기술을 빼돌려 돌려쓴 것인가? </p>
+<p>조사해본 결과, 지금 각 브라우저별로 자바스크립트가 호환되어 동작하는 이유는 <code>ECMA-262 표준명세</code>를 따랐기 때문이라고 한다.</p>
+<p>표준이 있었다! ECMA스크립트라고 들어본 적이 있을것이다.</p>
+<p>당시 넷스케이프 커뮤니케이션즈에서 JavaScript를 릴리즈 하고 마이크로소프트가 이에 적당히 호환되는 J스크립트를 개발하면서 JavaScript 표준의 필요성이 생겼던것 같다.</p>
+<p>넷스케이프는 JavaScript의 표준화를 위해 기술 규격을 <code>Ecma 인터네셔널</code>에 제출하였고 이 규격에 대한 작업은 <code>ECMA-262의 이름</code>으로 1997년 6월 채택되었다.</p>
+<p>참고로, Ecma 인터네셔널은 정보통신 시스템을 위한 국제적 표준화 기구라고 한다.</p>
+<p>결국 ECMA스크립트는 ECMA-262에 의해 표준화된 언어의 이름이고,<br>JavaScript와 J스크립트는 모두 ECMA스크립트와의 호환을 목표로 하면서, ECMA 규격에 포함되지 않는 확장 기능을 제공하고 있다.<br>현재의 JavaScript같은 브라우저별 스크립트 언어들은 ECMA스크립트 언어를 호환하는 방언?이라고 할 수 있다.</p>
+<hr>
+<h2 id="ECMA-스크립트의-실행은"><a href="#ECMA-스크립트의-실행은" class="headerlink" title="ECMA 스크립트의 실행은?"></a>ECMA 스크립트의 실행은?</h2><p>자바스크립트의 역사와 표준의 개념을 알고나니 뇟속이 든든해진 기분이다.</p>
+<p>자! 그렇다면. ECMA 스크립트는 각 브라우저별로 어떻게 실행되는 것일까?</p>
+<p>웹 브라우저의 <code>자바스크립트 엔진</code>에 의해서 동작을 한다. 이 엔진은 코드를 실행하는 프로그램 또는 인터프리터(소스를 기계어로 번역하지 않고 직접 실행)라고 할 수 있다.<br>최초의 자바스크립트 엔진은 넷스케이프 내비게이터 브라우저를 위해 C++로 개발된 <code>스파이더 몽키</code>이며<br>이를 시작으로 현재까지 각 브라우저별로 자바스크립트 엔진을 보유하고 개발해오고 있다.</p>
+<ul>
+<li>스파이더몽키 - 모질라,파이어폭스 지원</li>
+<li>V8 - 구글 크롬, Node.js</li>
+<li>웹킷 - 애플 사파리</li>
+<li>차크라 - 마이크로소프트 IE</li>
+<li>제리스크립트 - 사물인터넷용 자바스크립트 엔진</li>
+</ul>
+<p>각 운용하는 엔진이 다르다보니 모든 브라우저가 ECMA 표준을 따르지만, 브라우저별로 javascript뿐만 아니라 html, css등등의 최신 표준명세에 대하여 지원하는 수준이 다를 수 있다.<br>(크로스브라우징을 몰랐던 한 때 특정 소스가 IE에서 에러를 발생시키는 현상을 보고 충격을 받은적이 있었다..)</p>
+<p>그렇기 때문에 빌드시 js코드를 하향명세로 변환해주는 라이브러리를 사용하지 않는다면, 되도록 보수적인 문법을 사용하여 코드를 작성하는것을 추천한다.</p>
+<hr>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul>
+<li>JavaScript는 Html을 동적으로 마크업하기 위해 넷스케이프 커뮤니케이션즈에서 개발한 객체 기반 스크립트 프로그래밍 언어.</li>
+<li>Java를 따라 비슷한 문법을 구현하였지만, 실제로 Java 자체와 연관성은 없다</li>
+<li>브라우저별 JavaScript의 호환을 위해 국제기술규격언어 ECMA스크립트(ECMA-262)를 표준으로 지원하며 브라우저별 방언으로 확장 지원.</li>
+<li>브라우저별로 JavaScript 엔진을 운영하며 최신 표준에 대하여 각 브라우저별로 지원하는 수준이 다를 수 있다.</li>
+</ul>
+<p><img alt="alt text" title="discription" data-src="/img/favicon-96x96.png" class="lazyload"><br>다음 포스팅에서는 JavaScript엔진의 실행절차를 조금 더 상세하게 알아보자!</p>
+</div></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript    </a></div><div class="post_share"><div class="social-share" data-image="/img/js.png" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/12/16/javascript-engine/"><img class="prev_cover lazyload" data-src="/img/v8.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>javascript_engine</span></div></a></div><div class="next-post pull_right"><a href="/2019/12/10/test/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>test</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/12/16/javascript-engine/" title="javascript_engine"><img class="relatedPosts_cover lazyload"data-src="/img/v8.jpeg"><div class="relatedPosts_title">javascript_engine</div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><div id="disqus_thread"></div><script>var unused = null;
+var disqus_config = function () {
+  this.page.url = 'http://sangjin5579.github.io/2019/12/15/javascript/';
+  this.page.identifier = '2019/12/15/javascript/';
+  this.page.title = 'JavaScript';
+}
+var d = document, s = d.createElement('script');
+s.src = "https://" + 'devmonkey' +".disqus.com/embed.js";
+s.setAttribute('data-timestamp', '' + +new Date());
+(d.head || d.body).appendChild(s);</script></div></div></div><footer id="footer" style="background-image: url(/img/js.png)"><div id="footer-wrap"><div class="copyright">&copy;2019 By 황상진</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Read Mode"></i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><i class="darkmode fa fa-moon-o" id="darkmode" title="Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Setting"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="Scroll to comment"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="Table of Contents" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="Back to top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
